@@ -15,5 +15,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/open_card" />
+   <Button
+        android:id="@+id/color_fg_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_fg_color" />
 
+      <Button
+        android:id="@+id/color_bg_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_bg_color" />
+   
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.ga.agile;
 
+import com.ga.pref.SharedPrefUtil;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,35 +33,44 @@ public class AgilePokerCard extends Activity implements OnClickListener {
 	private void initViews() {
 		mLayoutContainer = (RelativeLayout) findViewById(R.id.card_container);
 		mLayoutContainer.setOnClickListener(this);
+		mLayoutContainer.setBackgroundColor(SharedPrefUtil
+				.getBackgroundColor(this));
+
+		int bgColor = SharedPrefUtil.getForegroundColor(this);
 
 		TextView textView = null;
 		textView = (TextView) findViewById(R.id.textTopLeft);
 		if (null != textView) {
 			textView.setText(mCardText);
+			textView.setTextColor(bgColor);
 		}
 
 		textView = null;
 		textView = (TextView) findViewById(R.id.textTopRight);
 		if (null != textView) {
 			textView.setText(mCardText);
+			textView.setTextColor(bgColor);
 		}
 
 		textView = null;
 		textView = (TextView) findViewById(R.id.textCenter);
 		if (null != textView) {
 			textView.setText(mCardText);
+			textView.setTextColor(bgColor);
 		}
 
 		CustomTextView customTextView = null;
 		customTextView = (CustomTextView) findViewById(R.id.textBottomLeft);
 		if (null != customTextView) {
 			customTextView.setText(mCardText);
+			textView.setTextColor(bgColor);
 		}
 
 		customTextView = null;
 		customTextView = (CustomTextView) findViewById(R.id.textBottomRight);
 		if (null != customTextView) {
 			customTextView.setText(mCardText);
+			textView.setTextColor(bgColor);
 		}
 		mTimerText = (TextView) findViewById(R.id.textTimerText);
 	}
