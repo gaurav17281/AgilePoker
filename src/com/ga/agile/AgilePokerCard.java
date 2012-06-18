@@ -1,7 +1,5 @@
 package com.ga.agile;
 
-import com.ga.pref.SharedPrefUtil;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ga.pref.SharedPrefUtil;
+
 public class AgilePokerCard extends Activity implements OnClickListener {
 	private static final String LOG_TAG = "AgilePokerCard";
 	private String mCardText = null;
@@ -20,7 +20,7 @@ public class AgilePokerCard extends Activity implements OnClickListener {
 	private Handler mHandler;
 	private TextView mTimerText;
 	private int mExpiredTime = 0;
-	private int mCardLifeTime = Constants.POKER_CARD_LIFE_TIME;
+	private int mCardLifeTime;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,44 +33,43 @@ public class AgilePokerCard extends Activity implements OnClickListener {
 	private void initViews() {
 		mLayoutContainer = (RelativeLayout) findViewById(R.id.card_container);
 		mLayoutContainer.setOnClickListener(this);
-		mLayoutContainer.setBackgroundColor(SharedPrefUtil
-				.getBackgroundColor(this));
+		int bgColor = SharedPrefUtil.getBackgroundColor(this);
+		int fgColor = SharedPrefUtil.getForegroundColor(this);
 
-		int bgColor = SharedPrefUtil.getForegroundColor(this);
+		mLayoutContainer.setBackgroundColor(bgColor);
 
 		TextView textView = null;
 		textView = (TextView) findViewById(R.id.textTopLeft);
 		if (null != textView) {
 			textView.setText(mCardText);
-			textView.setTextColor(bgColor);
+			textView.setTextColor(fgColor);
 		}
 
 		textView = null;
 		textView = (TextView) findViewById(R.id.textTopRight);
 		if (null != textView) {
 			textView.setText(mCardText);
-			textView.setTextColor(bgColor);
+			textView.setTextColor(fgColor);
 		}
 
 		textView = null;
 		textView = (TextView) findViewById(R.id.textCenter);
 		if (null != textView) {
 			textView.setText(mCardText);
-			textView.setTextColor(bgColor);
+			textView.setTextColor(fgColor);
 		}
 
-		CustomTextView customTextView = null;
-		customTextView = (CustomTextView) findViewById(R.id.textBottomLeft);
+		TextView customTextView = (TextView) findViewById(R.id.textBottomLeft);
 		if (null != customTextView) {
 			customTextView.setText(mCardText);
-			textView.setTextColor(bgColor);
+			customTextView.setTextColor(fgColor);
 		}
 
 		customTextView = null;
-		customTextView = (CustomTextView) findViewById(R.id.textBottomRight);
+		customTextView = (TextView) findViewById(R.id.textBottomRight);
 		if (null != customTextView) {
 			customTextView.setText(mCardText);
-			textView.setTextColor(bgColor);
+			customTextView.setTextColor(fgColor);
 		}
 		mTimerText = (TextView) findViewById(R.id.textTimerText);
 	}
@@ -81,6 +80,7 @@ public class AgilePokerCard extends Activity implements OnClickListener {
 			finishCardActivity();
 		}
 
+		mCardLifeTime = SharedPrefUtil.getCardTimeDelay(this);
 		mHandler = new Handler();
 		mRunnable = new Runnable() {
 			public void run() {
@@ -93,7 +93,7 @@ public class AgilePokerCard extends Activity implements OnClickListener {
 				}
 			}
 		};
-		mHandler.postDelayed(mRunnable, Constants.POKER_CARD_UPDATE_DELAY);
+		mHandler.postDelayed(mRunnable, mCardLifeTime);
 	}
 
 	private void updateTimer(int remainingTime) {

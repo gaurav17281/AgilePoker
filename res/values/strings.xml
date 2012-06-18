@@ -9,5 +9,14 @@
     <string name="timer_reset">Time reset to %d seconds.</string>
     <string name="select_fg_color">Text Color</string>
     <string name="select_bg_color">Background Color</string>
+    <string name="choose_card_delay_time">Choose Card Time</string>
+    <string name="dialog_okay">Save</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="seconds_label">Seconds</string>
+    <string-array name="pref_list">
+        <item>Text Color</item>
+        <item>Background Color</item>
+        <item>Card Time</item>
+    </string-array>
 
 </resources>

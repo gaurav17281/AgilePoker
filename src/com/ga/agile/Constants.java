@@ -17,6 +17,9 @@ public class Constants {
 
 	public static final int DEFAULT_BG_COLOR = 0xFFFFFF; // WHITE
 	public static final int DEFAULT_FG_COLOR = 0x000000; // BLACK
+	public static final int DEFAULT_POKER_CARD_MIN_LIFE_TIME = 10; // in seconds
+	public static final int DEFAULT_POKER_CARD_MAX_LIFE_TIME = 60; // in seconds
+
 	// bundle keys
 	public static final String KEY_CARD_TEXT = "_KEY_CARD_TEXT_";
 	public static final String KEY_COLOR_CODE = "_KEY_COLOR_CODE_";
@@ -30,7 +33,7 @@ public class Constants {
 	public static final String AGILE_POKER_PREF = "_AGILE_POKER_PREF_";
 	public static final String BG_COLOR = "_BACKGROUND_COLOR_";
 	public static final String FG_COLOR = "_FORGROUND_COLOR_";
+	public static final String CARD_TIME_DELAY = "_CARD_TIME_DELAY_";
 
 	public static final int POKER_CARD_UPDATE_DELAY = 1000; // in milli seconds
-	public static final int POKER_CARD_LIFE_TIME = 10; // in seconds
 }

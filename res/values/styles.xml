@@ -8,5 +8,4 @@
     <style name="font_style_large" parent="@android:style/TextAppearance.Large">
         <item name="android:textSize">55sp</item>
     </style>
-
 </resources>

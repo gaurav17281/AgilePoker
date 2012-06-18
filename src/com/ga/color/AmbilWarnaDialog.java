@@ -48,7 +48,7 @@ public class AmbilWarnaDialog {
 	public AmbilWarnaDialog(final Context context, Bundle bundle, OnAmbilWarnaListener listener) {
 		this.listener = listener;
 		mBundle = bundle;
-		int color = (int) bundle.getLong(Constants.KEY_COLOR_CODE);
+		int color = (int) bundle.getInt(Constants.KEY_COLOR_CODE);
 		Color.colorToHSV(color, currentColorHsv);
 
 		final View view = LayoutInflater.from(context).inflate(R.layout.ambilwarna_dialog, null);
